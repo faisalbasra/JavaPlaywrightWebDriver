@@ -32,7 +32,7 @@ The JavaPlaywrightWebDriver project is a quick start template designed to provid
 
 Example feature file (`src/test/resources/features/search.feature`):
 
-```gherkin
+****gherkin****
 Feature: Search functionality on the website
 
   Scenario: User searches for a product
@@ -40,3 +40,45 @@ Feature: Search functionality on the website
     When the user searches for "Playwright Automation"
     Then search results for the product are displayed
     And the user can see relevant products
+
+Example step definition (`src/test/java/stepdefinitions/SearchStepDefs.java`):
+
+import io.cucumber.java.en.*;
+import org.junit.jupiter.api.Assertions;
+import pages.HomePage;
+import pages.SearchResultsPage;
+
+public class SearchStepDefs {
+
+    private HomePage homePage = new HomePage();
+    private SearchResultsPage searchResultsPage = new SearchResultsPage();
+
+    @Given("the user is on the homepage")
+    public void userIsOnHomepage() {
+        homePage.navigate();
+    }
+
+    @When("the user searches for {string}")
+    public void userSearchesForProduct(String productName) {
+        homePage.search(productName);
+    }
+
+    @Then("search results for the product are displayed")
+    public void searchResultsAreDisplayed() {
+        Assertions.assertTrue(searchResultsPage.areSearchResultsDisplayed());
+    }
+
+    @Then("the user can see relevant products")
+    public void userSeesRelevantProducts() {
+        Assertions.assertTrue(searchResultsPage.hasRelevantProducts());
+    }
+}
+
+
+## Contributing
+
+Contributions to the JavaPlaywrightWebDriver project are welcome! If you encounter issues, have suggestions, or want to add new features, feel free to create issues and pull requests in this repository.
+
+## License
+
+This project is licensed under the [MIT License](https://chat.openai.com/LICENSE).
