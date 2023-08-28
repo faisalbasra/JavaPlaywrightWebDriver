@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Java Playwright Web Driver** is a comprehensive starting point for building end-to-end test automation projects using Java, Playwright, Cucumber, JUnit 5, and enhanced reporting support from Allure and Cucumber Reports. This template empowers QA engineers and developers to quickly set up a robust testing framework and focus on creating efficient, maintainable, and readable test scenarios.
+The **Java Playwright Web Driver** is a comprehensive starting point for building end-to-end test automation projects using **Java**, **Playwright**, **Cucumber**, **JUnit 5**, and enhanced reporting support with **Allure** and **Cucumber Reports**. This template empowers QA engineers and developers to quickly set up a robust testing framework and focus on creating efficient, maintainable, and readable test scenarios.
 
 ## Features
 
