@@ -1,140 +1,42 @@
-# Java Playwright Cucumber QuickStart Template
- Java Playwright Cucumber QuickStart Template 
+# JavaPlaywrightWebDriver
 
-<!-- TABLE OF CONTENTS -->
-<h2>
-    <details open="open">
-        <summary class="normal">Table of Contents</summary>
-        <h5>
-          <ol>
-            <li>
-              <a href="#about-the-project">About the Project</a>
-              <ul>
-                <li><a href="#built-with">Built With</a>
-              </ul>
-            </li>
-            <li>
-              <a href="#getting-started">Getting Started</a>
-              <ul>
-                <li><a href="#prerequisites">Prerequisites</a>
-                <li><a href="#installation">Installation</a>
-              </ul>
-            </li>
-            <li><a href="#usage">Usage</a></li>
-            <li><a href="#reports">Reports</a></li>
-          </ol>
-        </h5>    
-    </details>
-</h2>
+## Overview
 
-<!-- ABOUT THE PROJECT -->
+The JavaPlaywrightWebDriver project is a quick start template designed to provide a strong foundation for building web automation tests using Java programming language, Playwright for browser automation, Cucumber for behavior-driven development, and JUnit5 for test execution and reporting. This template streamlines the setup process for creating and executing automated tests for web applications, combining the power of these technologies.
 
-## About the Project
+## Features
 
-Playwright Demo - This project is based on Microsoft Playwright which enables reliable end-to-end testing for modern web
-apps.
+- **Java Playwright Integration:** Utilize Playwright to automate interactions with web browsers like Chromium, Firefox, and WebKit, using the Java programming language.
 
-Top Features:
+- **Behavior-Driven Development (BDD) with Cucumber:** Write human-readable scenarios using Cucumber's Gherkin language, fostering collaboration between technical and non-technical team members.
 
-- Easy to Configure.
-- Auto-waits for all the relevant checks to pass and only then performs the requested action.
-- Records the test script and every action on the target page is turned into generated script.
-- Generates trace file on failure, which gives in-depth details of Test Case execution.
-- Execution of test case is faster when compared with other competitive framework in market.
-- Supports Headful/Headless mode execution for Firefox/Webkit/Google Chrome/Chromium/MS Edge on Windows/Linux/Mac
-  machines.
-- Rerun Failed Test cases
-- Supports 'download' event monitoring, so there is no need for user to actually wait for downloads to finish.
-- Supports Serial and Parallel execution.
-- Spark PDF/HTML Reports are generated after execution with an option to capture screenshot/video/trace file on failure.
-- Nonetheless Support from Microsoft so FREQUENT RELEASES and turn around time for any queries is 48 hours.
+- **JUnit5 Test Execution:** Employ JUnit5 for test execution, offering robust test lifecycle management, reporting, and smooth integration with CI/CD pipelines.
 
-### Built With
+- **Page Object Model (POM) Design:** Implement the Page Object Model pattern for maintainable test scripts by separating page-specific interactions from test logic.
 
-- [Playwright](https://playwright.dev)
-- [Cucumber](https://cucumber.io/)
-- [JUnit](https://junit.org/junit5/)
-- [Maven](https://maven.apache.org/)
-- [OpenJDK](https://www.openlogic.com/openjdk-downloads)
+- **Configurable and Extensible:** The template ensures flexibility, allowing easy configuration customization, addition of dependencies, and framework extension as per project needs.
+
+- **Sample Test Scenarios:** The template includes sample test scenarios showcasing web element interactions, common actions, and expected behavior validation.
 
 ## Getting Started
 
-### Prerequisites
+1. Clone or fork this repository.
+2. Install required dependencies listed in the `pom.xml` file.
+3. Create feature files using Cucumber Gherkin syntax under `src/test/resources/features` directory.
+4. Implement step definitions for scenarios in the `src/test/java/stepdefinitions` package.
+5. Organize page objects under `src/test/java/pages` package to encapsulate web element interactions.
+6. Run tests using JUnit test runners.
+7. Review test reports and logs generated in the `target` directory after test execution.
 
-The following software are required:
+## Usage Examples
 
-- java : Download and Install java 1.8
-  ```sh
-  https://www.openlogic.com/openjdk-downloads
-  ```
-- Maven must be configured
+Example feature file (`src/test/resources/features/search.feature`):
 
-### Installation
+```gherkin
+Feature: Search functionality on the website
 
-1. Clone the repo using below URL
-
-```sh
-https://github.com/akshayp7/playwright-typescipt-playwright-test.git
-```
-
-2. Navigate to folder and install dependencies using:
-
-```sh
-mvn clean install
-```
-
-<!-- USAGE EXAMPLES-->
-
-## Usage
-
-1. For Browser Configuration, change required value in browser and headless mode in `src/test/resources/config/config.properties`.
-2. For executing test cases in parallel, navigate to pom.xml and in plugin in configuration section
-   provide `<skipTests>false</skipTests>`
-   Now if you want to run 4 features in parallel provide `<threadCount>4</threadCount>` in maven-failsafe-plugin section
-   in pom.xml and execute below command
-```JS
-mvn verify
-```
-3. For executing test cases in sequence, provide a suitable tag `@smoke` at the start of your scenario and execute below
-   command:
-```JS
-mvn test "-Dcucumber. options=--tags @smoke"
-```
-4. For recording test scripts execute below command with desired url:
-```JS
-mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen https://demoqa.com/"
-```
-5. For HTML Report configuration navigate to `src/test/resources/extent.properties` and provide destination folder as
-   value in `extent.reporter.spark.out`
-6. For PDF Report configuration navigate to `src/test/resources/extent.properties` and provide destination folder as
-   value in `extent.reporter.pdf.out`
-7. Screenshots and Trace files will be generated in target folder on failure this configuration is provided
-   in `src/test/java/hooks/Hooks.java` in `takeScreenshotAndTrace` method.
-8. To change your username go to `src/test/resources/config/config.properties` and provide value against `adminUsername`
-9. To change password, go to `src/main/java/utils/WebActions.java` in `encrypt()` and
-   replace `yourPassword` with your password, execute the test case, Encrypted password will be printed on your
-   console .
-   Copy Encrypted password in `src/test/resources/config/config.properties` against `adminPassword` field.
-10. You can even execute test cases by running `src/test/java/testrunner/TestRunner.java` file all the failed test cases
-    are saved in `target/rerun.txt`
-11. For rerunning failed test cases run `src/test/java/testrunner/ReRunner.java`
-12. Reports will be generated in `target/HTMLReport` and `target/PdfReport` folders.
-
-## Reports
-
-- <b>Overall Report</b>
-  ![Overall Report Screenshot][overall-report-screenshot]
-
-- <b>Failure Report</b>
-  ![Failure Report Screenshot][failure-report-screenshot]
-
-- <b>PDF Report</b>
-  ![PDF Report Screenshot][pdf-report-screenshot]
-
-<!-- MARKDOWN LINKS & IMAGES -->
-
-[overall-report-screenshot]: ReadMeImages/OverallReport.PNG
-
-[failure-report-screenshot]: ReadMeImages/FailureReport.PNG
-
-[pdf-report-screenshot]: ReadMeImages/PDFReport.PNG
+  Scenario: User searches for a product
+    Given the user is on the homepage
+    When the user searches for "Playwright Automation"
+    Then search results for the product are displayed
+    And the user can see relevant products
